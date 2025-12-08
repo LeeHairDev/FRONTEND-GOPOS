@@ -62,6 +62,7 @@ const Products = ({ onAddProduct }) => {
 
   const loadCategories = async () => {
     try {
+      
       const res = await fetch(`${API_ENDPOINTS.CATEGORIES}`);
       const data = await res.json();
       setCategories(Array.isArray(data) ? data : data.categories || []);

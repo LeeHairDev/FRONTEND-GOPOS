@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useState } from 'react'
+import { API_ENDPOINTS } from '../../config'
 import { customerService } from '../../services/customerService'
-import { API_ENDPOINTS } from '../../config';
 
 const DebtModal = ({ isOpen, onClose, onSave, customer }) => {
   const [form, setForm] = useState({ amount: 0, type: 'add', note: '' })
