@@ -64,7 +64,7 @@ const LoginPage = ({ onLogin }) => {
       <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full m-4">
         <div className="text-center mb-6">
           <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-            <img src="../../public/logo.png" alt="GoPOS" className="w-12 h-12 object-contain" />
+            <img src="/public/logo.png" alt="GoPOS" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-blue-600">GoPOS</h1>
           <p className="text-gray-500 text-sm">Hệ thống quản lý bán hàng</p>
