@@ -6,6 +6,7 @@ import AddProductModal from './modals/AddProductModal'
 import EditProductModal from './modals/EditProductModal'
 import BarcodeScanner from './BarcodeScanner'
 import useBarcodeScanner from '../hooks/useBarcodeScanner'
+import { API_ENDPOINTS } from '../config'
 
 const Products = ({ onAddProduct }) => {
   const [products, setProducts] = useState([])
@@ -61,7 +62,7 @@ const Products = ({ onAddProduct }) => {
 
   const loadCategories = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/categories');
+      const res = await fetch(`${API_ENDPOINTS.CATEGORIES}`);
       const data = await res.json();
       setCategories(Array.isArray(data) ? data : data.categories || []);
     } catch (err) {

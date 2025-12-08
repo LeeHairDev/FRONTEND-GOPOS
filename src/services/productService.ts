@@ -1,5 +1,7 @@
 // Frontend/src/services/productService.ts
-const API_URL = "http://localhost:5000/api/products";
+import { API_ENDPOINTS } from '../config';
+
+const API_URL = API_ENDPOINTS.PRODUCTS;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");

@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React, { useState } from 'react';
+import { API_ENDPOINTS } from '../config';
 
 const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('admin@test.com');
@@ -10,7 +11,7 @@ const LoginPage = ({ onLogin }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch(`${API_ENDPOINTS.AUTH}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -24,7 +25,7 @@ const LoginPage = ({ onLogin }) => {
         try {
           const now = new Date();
           const localDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-          const checkInRes = await fetch('http://localhost:5000/api/attendance/check-in', {
+          const checkInRes = await fetch(`${API_ENDPOINTS.ATTENDANCE}/check-in`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

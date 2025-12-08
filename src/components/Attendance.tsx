@@ -1,7 +1,8 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config';
 
-const API_URL = 'http://localhost:5000/api/attendance';
+const API_URL = API_ENDPOINTS.ATTENDANCE;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');
@@ -164,7 +165,7 @@ const Attendance = () => {
 
   const fetchShifts = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/shifts', {
+      const res = await fetch(`${API_ENDPOINTS.SHIFTS}`, {
         headers: getAuthHeaders(),
       });
       if (res.ok) {
@@ -178,7 +179,7 @@ const Attendance = () => {
 
   const fetchEmployeeShiftsForDate = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/shifts/by-date?date=${currentDate}`, {
+      const res = await fetch(`${API_ENDPOINTS.SHIFTS}/by-date?date=${currentDate}`, {
         headers: getAuthHeaders(),
       });
       if (res.ok) {
@@ -266,7 +267,7 @@ const Attendance = () => {
         const dateStr = getLocalDateString(date);
 
         assignPromises.push(
-          fetch('http://localhost:5000/api/shifts/assign', {
+          fetch(`${API_ENDPOINTS.SHIFTS}/assign`, {
             method: 'POST',
             headers: getAuthHeaders(),
             body: JSON.stringify({

@@ -42,31 +42,35 @@ const useNotifications = () => {
 
   useEffect(() => {
     // Connect to Socket.io server
-    const socket = io("http://localhost:5000", {
-      reconnection: true,
-      reconnectionDelay: 1000,
-      reconnectionDelayMax: 5000,
-      reconnectionAttempts: 5,
-    });
+    const initSocket = async () => {
+      const { API_BASE_URL } = await import("../config");
+      const socket = io(API_BASE_URL, {
+        reconnection: true,
+        reconnectionDelay: 1000,
+        reconnectionDelayMax: 5000,
+        reconnectionAttempts: 5,
+      });
 
-    // Listen for new notifications
-    socket.on("notification:new", (notification) => {
-      const newNotification = {
-        ...notification,
-        id: Date.now(),
-        read: false,
+      // Listen for new notifications
+      socket.on("notification:new", (notification) => {
+        const newNotification = {
+          ...notification,
+          id: Date.now(),
+          read: false,
+        };
+
+        setNotifications((prev) => [newNotification, ...prev]);
+        setUnreadCount((prev) => prev + 1);
+
+        // Keep only last 50 notifications to avoid storage overflow
+        setNotifications((prev) => prev.slice(0, 50));
+      });
+
+      return () => {
+        socket.disconnect();
       };
-
-      setNotifications((prev) => [newNotification, ...prev]);
-      setUnreadCount((prev) => prev + 1);
-
-      // Keep only last 50 notifications to avoid storage overflow
-      setNotifications((prev) => prev.slice(0, 50));
-    });
-
-    return () => {
-      socket.disconnect();
     };
+    initSocket();
   }, []);
 
   const removeNotification = useCallback((id) => {

@@ -1,5 +1,7 @@
 // Frontend/src/services/orderService.ts
-const API_URL = "http://localhost:5000/api/orders";
+import { API_ENDPOINTS } from '../config';
+
+const API_URL = API_ENDPOINTS.ORDERS;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");

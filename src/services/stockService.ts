@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:5000/api/stock";
+import { API_ENDPOINTS } from '../config';
+
+const API_URL = API_ENDPOINTS.STOCK;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");

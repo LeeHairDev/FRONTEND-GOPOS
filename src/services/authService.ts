@@ -1,5 +1,7 @@
 // Frontend/src/services/authService.ts
-const API_URL = "http://localhost:5000/api/auth";
+import { API_ENDPOINTS } from '../config';
+
+const API_URL = API_ENDPOINTS.AUTH;
 
 export const authService = {
   register: async (name: string, email: string, password: string, role?: string) => {

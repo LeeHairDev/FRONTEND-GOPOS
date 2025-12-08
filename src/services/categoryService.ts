@@ -1,5 +1,7 @@
 // Frontend/src/services/categoryService.ts
-const API_URL = "http://localhost:5000/api/categories";
+import { API_ENDPOINTS } from '../config';
+
+const API_URL = API_ENDPOINTS.CATEGORIES;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");

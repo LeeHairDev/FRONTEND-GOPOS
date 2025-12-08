@@ -1,7 +1,8 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config';
 
-const API_URL = 'http://localhost:5000/api/shifts';
+const API_URL = API_ENDPOINTS.SHIFTS;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');

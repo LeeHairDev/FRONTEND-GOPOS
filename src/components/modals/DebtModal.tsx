@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import { customerService } from '../../services/customerService'
+import { API_ENDPOINTS } from '../../config';
 
 const DebtModal = ({ isOpen, onClose, onSave, customer }) => {
   const [form, setForm] = useState({ amount: 0, type: 'add', note: '' })
@@ -35,7 +36,7 @@ const DebtModal = ({ isOpen, onClose, onSave, customer }) => {
       }
 
       // Call update debt API
-      const response = await fetch(`http://localhost:5000/api/customers/${customer._id}/debt`, {
+      const response = await fetch(`${API_ENDPOINTS.CUSTOMERS}/${customer._id}/debt`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
