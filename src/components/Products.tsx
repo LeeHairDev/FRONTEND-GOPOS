@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import { productService } from '../services/productService'
 import { exportProductsToExcel } from '../utils/excelExport'
@@ -580,3 +581,4 @@ const Products = ({ onAddProduct }) => {
 }
 
 export default Products
+

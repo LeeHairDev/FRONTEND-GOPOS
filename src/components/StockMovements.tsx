@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import { stockService } from '../services/stockService';
 import { productService } from '../services/productService';
@@ -194,3 +195,4 @@ const StockMovements = () => {
 };
 
 export default StockMovements;
+

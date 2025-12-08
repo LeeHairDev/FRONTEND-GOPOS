@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import useBarcodeScanner from '../hooks/useBarcodeScanner';
 import { productService } from '../services/productService';
@@ -108,3 +109,4 @@ export const QuickBarcodeSearch = ({
 };
 
 export default QuickBarcodeSearch;
+

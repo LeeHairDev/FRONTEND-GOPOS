@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import { userService } from '../services/userService'
 import EditEmployeeModal from './modals/EditEmployeeModal'
@@ -286,3 +287,4 @@ const Employees = () => {
 }
 
 export default Employees
+

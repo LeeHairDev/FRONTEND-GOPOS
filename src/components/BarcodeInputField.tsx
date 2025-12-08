@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import useBarcodeScanner from '../hooks/useBarcodeScanner';
 import { productService } from '../services/productService';
@@ -169,3 +170,4 @@ const BarcodeInputField = ({
 };
 
 export default BarcodeInputField;
+

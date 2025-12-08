@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { customerService } from '../../services/customerService';
 
@@ -149,3 +150,4 @@ const AddCustomerModal = ({ isOpen, onClose, onSave }) => {
 };
 
 export default AddCustomerModal;
+

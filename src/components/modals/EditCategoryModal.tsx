@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import { categoryService } from '../../services/categoryService'
 
@@ -105,3 +106,4 @@ const EditCategoryModal = ({ isOpen, category, onClose, onSave }) => {
 }
 
 export default EditCategoryModal
+

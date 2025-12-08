@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import './index.css'
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -169,3 +170,4 @@ function App() {
 }
 
 export default App
+

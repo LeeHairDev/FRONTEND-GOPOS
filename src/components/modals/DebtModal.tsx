@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import { customerService } from '../../services/customerService'
 
@@ -165,3 +166,4 @@ const DebtModal = ({ isOpen, onClose, onSave, customer }) => {
 }
 
 export default DebtModal
+

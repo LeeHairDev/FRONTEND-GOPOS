@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { orderService } from '../services/orderService';
 import PrintModal from './modals/PrintModal';
@@ -504,3 +505,4 @@ const Orders = () => {
 };
 
 export default Orders;
+

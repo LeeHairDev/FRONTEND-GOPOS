@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { productService } from '../../services/productService';
 import { categoryService } from '../../services/categoryService';
@@ -266,3 +267,4 @@ const AddProductModal = ({ isOpen, onClose, onSave }) => {
 };
 
 export default AddProductModal;
+

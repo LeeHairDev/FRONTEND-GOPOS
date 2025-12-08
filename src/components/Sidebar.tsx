@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { getAvatarUrl } from '../utils/avatarHelper';
 

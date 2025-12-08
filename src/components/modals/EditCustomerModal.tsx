@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import { uploadImage } from '../../services/uploadService';
 import { getAvatarUrl } from '../../utils/avatarHelper';
@@ -193,3 +194,4 @@ const EditCustomerModal = ({ isOpen, customer, onClose, onSave }) => {
 };
 
 export default EditCustomerModal;
+

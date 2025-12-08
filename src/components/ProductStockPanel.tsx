@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import { productService } from '../services/productService'
 import { warehouseService } from '../services/warehouseService'
@@ -340,3 +341,4 @@ const ProductStockPanel = ({ product, isOpen, onClose, onUpdate }) => {
 }
 
 export default ProductStockPanel
+

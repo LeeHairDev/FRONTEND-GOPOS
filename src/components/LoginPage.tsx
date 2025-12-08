@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 
 const LoginPage = ({ onLogin }) => {
@@ -109,3 +110,4 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
+

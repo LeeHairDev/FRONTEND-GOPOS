@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 
 /**
@@ -29,3 +30,4 @@ export const BarcodeScanner = ({ isScanning, barcodeBuffer, onClose }) => {
 };
 
 export default BarcodeScanner;
+

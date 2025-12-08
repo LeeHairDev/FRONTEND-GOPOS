@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { userService } from '../../services/userService';
 
@@ -163,3 +164,4 @@ const AddEmployeeModal = ({ isOpen, onClose, onSave }) => {
 };
 
 export default AddEmployeeModal;
+

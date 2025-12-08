@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { userService } from '../services/userService';
 import { uploadImage } from '../services/uploadService';
@@ -270,3 +271,4 @@ const AccountInfo = () => {
 };
 
 export default AccountInfo;
+

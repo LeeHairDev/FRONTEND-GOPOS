@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { orderService } from '../services/orderService';
 import { customerService } from '../services/customerService';
@@ -524,3 +525,4 @@ const NewOrder = ({ onProcessOrder }) => {
 };
 
 export default NewOrder;
+

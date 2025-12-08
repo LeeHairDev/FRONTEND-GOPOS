@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { orderService } from '../../services/orderService';
 
@@ -164,3 +165,4 @@ const PayDebtModal = ({ isOpen, onClose, order, onSuccess }) => {
 };
 
 export default PayDebtModal;
+

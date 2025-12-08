@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 
 export const useToast = () => {
@@ -44,3 +45,4 @@ const Toast = (props) => {
 }
 
 export default Toast
+

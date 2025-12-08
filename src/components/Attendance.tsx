@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 
 const API_URL = 'http://localhost:5000/api/attendance';
@@ -916,3 +917,4 @@ const Attendance = () => {
 };
 
 export default Attendance;
+

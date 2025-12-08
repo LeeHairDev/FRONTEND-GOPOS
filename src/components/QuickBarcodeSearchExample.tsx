@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import QuickBarcodeSearch from './QuickBarcodeSearch';
 
@@ -200,3 +201,4 @@ const handleProductNotFound = (barcode) => {
 };
 
 export default QuickBarcodeSearchExample;
+

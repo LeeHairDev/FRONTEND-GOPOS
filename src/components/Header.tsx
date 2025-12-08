@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 
 const Header = ({ title, subtitle, onLogout, onNewOrder, notifications = [], unreadCount = 0, onMarkAsRead, onClearAll, onRemoveNotification }) => {

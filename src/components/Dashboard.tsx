@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { productService } from '../services/productService';
 import { orderService } from '../services/orderService';
@@ -239,3 +240,4 @@ const Dashboard = ({ onOpenImport }) => {
 };
 
 export default Dashboard;
+

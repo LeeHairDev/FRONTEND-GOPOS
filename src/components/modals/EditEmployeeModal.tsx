@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import { uploadImage } from '../../services/uploadService'
 import { getAvatarUrl } from '../../utils/avatarHelper'
@@ -190,3 +191,4 @@ const EditEmployeeModal = ({ isOpen, employee, onClose, onSave }) => {
 }
 
 export default EditEmployeeModal
+

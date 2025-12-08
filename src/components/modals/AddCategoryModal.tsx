@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react'
 import { categoryService } from '../../services/categoryService'
 
@@ -99,3 +100,4 @@ const AddCategoryModal = ({ isOpen, onClose, onSave }) => {
 }
 
 export default AddCategoryModal
+

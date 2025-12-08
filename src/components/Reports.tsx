@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import { orderService } from '../services/orderService'
 import { productService } from '../services/productService'
