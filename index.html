@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>frontend</title>
+    <!-- Runtime API override: set this to your backend root (no trailing slash) -->
+    <script>
+      // This allows overriding the build-time API URL at runtime.
+      // Vercel users: if you prefer build-time substitution, set VITE_API_URL in Vercel env vars.
+      window.__API_BASE_URL = window.__API_BASE_URL || 'https://backend-gopos.vercel.app';
+    </script>
   </head>
   <body>
     <div id="root"></div>
