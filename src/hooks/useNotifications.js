@@ -42,9 +42,20 @@ const useNotifications = () => {
 
   useEffect(() => {
     // Connect to Socket.io server
-    const initSocket = async () => {
-      const { API_BASE_URL } = await import("../config");
-      const socket = io(API_BASE_URL, {
+    const initSocket = () => {
+      // Use runtime-configured base URL
+      let base = undefined;
+      try {
+        // Prefer runtime global, then config helper
+        base =
+          (typeof window !== "undefined" && window.__API_BASE_URL) ||
+          require("../config").getApiBaseUrl();
+      } catch (e) {
+        // fallback to window or undefined
+        base =
+          (typeof window !== "undefined" && window.__API_BASE_URL) || undefined;
+      }
+      const socket = io(base, {
         reconnection: true,
         reconnectionDelay: 1000,
         reconnectionDelayMax: 5000,
