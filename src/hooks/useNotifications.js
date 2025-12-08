@@ -49,11 +49,14 @@ const useNotifications = () => {
         // Prefer runtime global, then config helper
         base =
           (typeof window !== "undefined" && window.__API_BASE_URL) ||
+          "https://backend-gopos-production.up.railway.app/" ||
           require("../config").getApiBaseUrl();
       } catch (e) {
         // fallback to window or undefined
         base =
-          (typeof window !== "undefined" && window.__API_BASE_URL) || undefined;
+          (typeof window !== "undefined" && window.__API_BASE_URL) ||
+          "https://backend-gopos-production.up.railway.app/" ||
+          undefined;
       }
       // attach auth token (if present) so backend can validate the socket handshake
       const token =
