@@ -59,8 +59,8 @@ const Sidebar = ({ activeTab, onTabChange }) => {
     <div className="w-64 bg-white shadow-lg">
       <div className="p-4 border-b">
         <div className="flex items-center">
-          <div className="bg-blue-100 p-2 rounded-lg mr-3">
-            <i className="fas fa-pills text-blue-600 text-xl"></i>
+          <div className="mr-3">
+            <img src="/gopos-logo.png" alt="GoPOS" className="w-10 h-10 object-contain" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-blue-600">GoPOS</h1>

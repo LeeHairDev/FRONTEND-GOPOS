@@ -22,8 +22,8 @@ const PrintModal = ({ isOpen, onClose, order }) => {
         <div className="mb-4 print:mb-2">
           <div className="flex justify-between items-start print:block">
             <div className="flex items-center">
-              <div className="bg-blue-100 w-10 h-10 rounded-lg flex items-center justify-center mr-2">
-                <i className="fas fa-pills text-blue-600 text-sm"></i>
+              <div className="w-10 h-10 flex items-center justify-center mr-2">
+                <img src="/gopos-logo.png" alt="GoPOS" className="w-8 h-8 object-contain" />
               </div>
               <div>
                 <h1 className="text-lg font-bold text-blue-600">GoPOS</h1>

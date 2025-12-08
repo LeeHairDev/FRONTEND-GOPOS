@@ -63,8 +63,8 @@ const LoginPage = ({ onLogin }) => {
     <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-indigo-600">
       <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full m-4">
         <div className="text-center mb-6">
-          <div className="bg-blue-100 w-16 h-16 rounded-lg mx-auto mb-4 flex items-center justify-center">
-            <i className="fas fa-pills text-blue-600 text-2xl"></i>
+          <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <img src="/gopos-logo.png" alt="GoPOS" className="w-12 h-12 object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-blue-600">GoPOS</h1>
           <p className="text-gray-500 text-sm">Hệ thống quản lý bán hàng</p>
