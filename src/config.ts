@@ -1,6 +1,13 @@
-// API configuration - uses VITE_API_URL env var or defaults to localhost for dev
-export const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// API configuration - prefer a runtime override `window.__API_BASE_URL` when available,
+// otherwise use the Vite build-time env var `VITE_API_URL`, and finally fall back to localhost.
+const runtimeBase = typeof window !== 'undefined' && (window as any).__API_BASE_URL;
+const envBase = import.meta.env?.VITE_API_URL;
+const defaultBase = 'http://localhost:5000';
+
+// Normalize: remove trailing slash if present
+const normalize = (u?: string) => (u ? u.replace(/\/+$/, '') : undefined);
+
+export const API_BASE_URL = normalize(runtimeBase) || normalize(envBase) || defaultBase;
 
 export const API_ENDPOINTS = {
   AUTH: `${API_BASE_URL}/api/auth`,
