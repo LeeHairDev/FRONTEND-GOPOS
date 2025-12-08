@@ -55,11 +55,27 @@ const useNotifications = () => {
         base =
           (typeof window !== "undefined" && window.__API_BASE_URL) || undefined;
       }
+      // attach auth token (if present) so backend can validate the socket handshake
+      const token =
+        typeof window !== "undefined" ? localStorage.getItem("token") : null;
       const socket = io(base, {
+        path: "/socket.io",
+        transports: ["websocket", "polling"],
+        auth: token ? { token } : undefined,
         reconnection: true,
         reconnectionDelay: 1000,
         reconnectionDelayMax: 5000,
         reconnectionAttempts: 5,
+      });
+
+      socket.on("connect_error", (err) => {
+        console.warn(
+          "Socket connect_error:",
+          err && err.message ? err.message : err
+        );
+      });
+      socket.on("error", (err) => {
+        console.warn("Socket error:", err);
       });
 
       // Listen for new notifications
