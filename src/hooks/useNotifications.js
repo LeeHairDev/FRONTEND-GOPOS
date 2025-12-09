@@ -49,14 +49,11 @@ const useNotifications = () => {
         // Prefer runtime global, then config helper
         base =
           (typeof window !== "undefined" && window.__API_BASE_URL) ||
-          "https://backend-gopos-production.up.railway.app/" ||
           require("../config").getApiBaseUrl();
       } catch (e) {
         // fallback to window or undefined
         base =
-          (typeof window !== "undefined" && window.__API_BASE_URL) ||
-          "https://backend-gopos-production.up.railway.app/" ||
-          undefined;
+          (typeof window !== "undefined" && window.__API_BASE_URL) || undefined;
       }
       // attach auth token (if present) so backend can validate the socket handshake
       const token =
@@ -108,10 +105,29 @@ const useNotifications = () => {
   }, []);
 
   const markAsRead = useCallback((id) => {
-    setNotifications((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, read: true } : n))
-    );
-    setUnreadCount((prev) => Math.max(0, prev - 1));
+    setNotifications((prevNotifications) => {
+      // Biến cờ để kiểm tra xem thông báo có được đánh dấu là đã đọc lần đầu tiên không
+      let shouldDecrement = false;
+
+      const newNotifications = prevNotifications.map((n) => {
+        // 1. Kiểm tra xem đây có phải là thông báo cần cập nhật KHÔNG
+        if (n.id === id) {
+          // 2. Kiểm tra xem thông báo này ĐÃ ĐỌC TRƯỚC ĐÓ CHƯA (để tránh trừ lặp lại)
+          if (n.read === false) {
+            shouldDecrement = true; // Chỉ trừ khi nó chưa đọc
+          }
+          return { ...n, read: true };
+        }
+        return n;
+      });
+
+      // Cập nhật số lượng chưa đọc dựa trên cờ
+      if (shouldDecrement) {
+        setUnreadCount((prev) => Math.max(0, prev - 1));
+      }
+
+      return newNotifications;
+    });
   }, []);
 
   const clearAll = useCallback(() => {
