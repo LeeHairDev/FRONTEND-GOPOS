@@ -1,11 +1,13 @@
 // @ts-nocheck
 import React, { useState } from 'react';
 import { API_ENDPOINTS } from '../config';
-
+import Toast from './Toast';
 const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('admin@test.com');
   const [password, setPassword] = useState('123456');
   const [loading, setLoading] = useState(false);
+    const [toast, setToast] = useState(null)
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
