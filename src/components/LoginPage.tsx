@@ -41,11 +41,11 @@ const LoginPage = ({ onLogin }) => {
             const checkInData = await checkInRes.json();
             alert(`✓ Đăng nhập thành công - Vào lúc ${checkInData.attendance.checkInTime}`);
           } else {
-            alert('Đăng nhập thành công');
+            setToast({ message: 'Đăng nhập thành công', type: 'success' })
           }
         } catch (checkInErr) {
           console.error('Auto check-in error:', checkInErr);
-          alert('Đăng nhập thành công');
+           setToast({ message: 'Đăng nhập thành công', type: 'success' })
         }
         
         onLogin?.();
@@ -54,7 +54,7 @@ const LoginPage = ({ onLogin }) => {
       }
     } catch (err) {
       console.error('Login error:', err);
-      alert('Lỗi khi đăng nhập');
+      setToast({ message: 'Đăng nhập không thành công', type: 'error' })
     }
     setLoading(false);
   };
