@@ -4,6 +4,7 @@ import { orderService } from '../services/orderService'
 import { productService } from '../services/productService'
 import { userService } from '../services/userService'
 import { customerService } from '../services/customerService'
+import VATInvoiceModal from './modals/VATInvoiceModal'
 import CategoryRevenueChart from './charts/CategoryRevenueChart'
 import TopCustomersChart from './charts/TopCustomersChart'
 
@@ -13,6 +14,8 @@ const Reports = () => {
   const [employeeStats, setEmployeeStats] = useState([])
   const [customerStats, setCustomerStats] = useState([])
   const [loading, setLoading] = useState(true)
+  const [showVATModal, setShowVATModal] = useState(false)
+  const [vatDate, setVatDate] = useState(new Date().toISOString().slice(0,10))
 
   useEffect(() => {
     fetchReportData()
@@ -173,6 +176,9 @@ const Reports = () => {
           <button onClick={handleExportReport} className="btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
             <i className="fas fa-file-export mr-2"></i> Xuất báo cáo
           </button>
+          <button onClick={() => setShowVATModal(true)} className="btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center">
+            <i className="fas fa-file-invoice mr-2"></i> Tạo hóa đơn VAT (Hôm nay)
+          </button>
         </div>
       </div>
 
@@ -274,6 +280,7 @@ const Reports = () => {
         </div>
       </div>
     </div>
+    <VATInvoiceModal isOpen={showVATModal} onClose={() => setShowVATModal(false)} date={vatDate} />
   );
 };
 
