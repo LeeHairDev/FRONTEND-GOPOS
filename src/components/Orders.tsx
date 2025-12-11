@@ -417,7 +417,7 @@ const Orders = () => {
                               className="text-indigo-600 hover:text-indigo-900 hover:bg-indigo-50 p-2 rounded transition"
                               title="Hóa đơn VAT (ngày đơn)"
                             >
-                              <i className="fas fa-file-invoice"></i>
+                              <i className="fas fa-receipt"></i>
                             </button>
                             {order.paymentStatus !== 'paid' && (order.isDebt || order.debtAmount > 0) && (
                               <button 
