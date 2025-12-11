@@ -3,11 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { orderService } from '../services/orderService';
 import PrintModal from './modals/PrintModal';
 import PayDebtModal from './modals/PayDebtModal';
+import VATInvoiceModal from './modals/VATInvoiceModal';
 import { exportOrdersToExcel } from '../utils/excelExport';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showVATModal, setShowVATModal] = useState(false);
+  const [vatDate, setVatDate] = useState(new Date().toISOString().slice(0,10));
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [showPrintModal, setShowPrintModal] = useState(false);
@@ -195,7 +198,21 @@ const Orders = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-       
+        <div>
+          <h2 className="text-2xl font-bold">Đơn hàng</h2>
+          <p className="text-sm text-gray-500">Danh sách đơn hàng</p>
+        </div>
+        <div className="flex items-center space-x-2">
+          <input
+            type="date"
+            value={vatDate}
+            onChange={(e) => setVatDate(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
+          />
+          <button onClick={() => setShowVATModal(true)} className="btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center">
+            <i className="fas fa-file-invoice mr-2"></i> Hóa đơn VAT
+          </button>
+        </div>
       </div>
 
       <div className="bg-white rounded-lg shadow p-6">
@@ -500,6 +517,8 @@ const Orders = () => {
         order={selectedOrder}
         onSuccess={fetchOrders}
       />
+
+      <VATInvoiceModal isOpen={showVATModal} onClose={() => setShowVATModal(false)} date={vatDate} />
     </div>
   );
 };
