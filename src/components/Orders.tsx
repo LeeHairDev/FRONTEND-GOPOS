@@ -116,7 +116,6 @@ const Orders = () => {
         return status;
     }
   };
-
   const getDebtBadge = (paymentStatus, debtAmount) => {
     if (paymentStatus === 'paid' || debtAmount === 0) {
       return 'bg-blue-100 text-blue-800';
@@ -413,6 +412,13 @@ const Orders = () => {
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap">
                           <div className="flex space-x-2">
+                            <button 
+                              onClick={() => { setVatDate(new Date(order.createdAt).toISOString().slice(0,10)); setShowVATModal(true); }}
+                              className="text-indigo-600 hover:text-indigo-900 hover:bg-indigo-50 p-2 rounded transition"
+                              title="Hóa đơn VAT (ngày đơn)"
+                            >
+                              <i className="fas fa-file-invoice"></i>
+                            </button>
                             {order.paymentStatus !== 'paid' && (order.isDebt || order.debtAmount > 0) && (
                               <button 
                                 onClick={() => handleOpenPayDebtModal(order)} 
